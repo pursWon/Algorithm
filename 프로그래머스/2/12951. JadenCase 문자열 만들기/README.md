@@ -57,5 +57,36 @@
 
 <p>※ 공지 - 2022년 1월 14일 제한 조건과 테스트 케이스가 추가되었습니다.</p>
 
+```java
+
+package com.jPractice;
+
+public class Practice {
+	public static void main(String[] args) {
+		String s = "3people unFollowed me";
+		String answer = "";
+		
+		// 주어진 String 값을 모두 소문자로 만들고 split 메소드를 사용함
+		// 결과는 다음과 같음 -> [3, p, e, o, p, l, e,  , u, n, f, o, l, l, o, w, e, d,  , m, e]
+		String[] words = s.toLowerCase().split("");
+		
+		// boolean 값을 하나 설정
+		boolean flag = true;
+		
+		// for문을 돌면서 flag의 값이 true인지, false인지 체크. true일 경우에는 word를 대문자로 만든 후에 answer에 더하고, 아닐 경우는 그냥 더해주면 됨
+		// word가 공백일 경우를 체크, 대문자로 만드는 첫번째 문자 다음에는 무조건 공백이 오지 않으므로 flag는 false값이 됨
+		// 그래서 공백이 있는 곳까지 for문이 도달하기 전엔 그냥 answer에 더해주다가, 공백을 만나면, flag는 true가 됨.
+		// 그리고 공백 다음의 문자. 단어의 첫글자는 flag가 true이므로 대문자로 변경.
+		// 그래서, 공백 다음에 오는 단어들은 무조건 첫 글자는 대문자 나머지는 무조건 소문자로 설정이 됨.
+		for (String word : words) {
+			answer += flag ? word.toUpperCase() : word;
+			flag = word.equals(" ") ? true : false;
+			System.out.println(answer);
+		}
+	}
+}
+
+```
+
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
