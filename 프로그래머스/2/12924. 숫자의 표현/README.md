@@ -61,5 +61,42 @@
 
 <p>※ 공지 - 2022년 3월 11일 테스트케이스가 추가되었습니다.</p>
 
+**나의 풀이**
+
+```java
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        
+        for(int i=1; i<=n; i++) {
+			int sum = 0;
+
+                        // n이 15라고 가정
+			// j가 for 문을 돌면서
+                        // 1 + 2 + 3 + 4 + 5 + 6... 식으로 sum에 값을 더하게 되고
+                        // sum이 n과 같거나 n보다 커지게 되면
+                        // break를 통해 다시 위의 for문에서 i가 1증가하고 j의 값은 2가 됩니다.
+                        // 그럼 이제 2 + 3 + 4 + 5 + 6... 식으로 다시 sum에 값을 더하게 되고
+                        // 위의 반복식을 통해서 sum이 15가 될 때만 answer에 1씩 더하므로
+                        // 처음 시작하는 숫자를 1씩 늘리면서 순차적으로 더한 식이 몇 개가 되는지 확인할 수 있습니다.
+
+			for(int j=i; j<=n; j++) {
+				sum += j; 
+				if(sum==n) {
+					answer++; 
+					break;
+				} else if(sum>n) {
+					break;
+				}
+			}
+		}  
+        
+        return answer;
+    }
+}
+
+```
+
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
