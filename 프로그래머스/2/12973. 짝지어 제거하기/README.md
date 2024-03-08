@@ -64,5 +64,41 @@
 <p>※ 공지 - 2020년 6월 8일 테스트케이스가 추가되었습니다.<br>
 ※ 공지 - 2023년 8월 31일 테스트케이스가 추가되었습니다. 기존에 제출한 코드가 통과하지 못할 수도 있습니다.</p>
 
+**나의 풀이**
+
+```java
+
+import java.util.Stack;
+
+class Solution {
+    public int solution(String s) {
+        // String s를 char 타입의 배열로 변형
+        char[] array = s.toCharArray();
+        // Stack 배열을 형성
+		Stack<Character>stack = new Stack <>();
+        
+        for (char c : array) {
+            // Stack이 비어있으면 값을 집어넣음(push)
+			if (stack.isEmpty()) {
+				stack.push(c);
+			} else {
+                // 넣은 값이 최상단 값과 같은 것을 체크(peek), 같을 경우에 최상단 값을 제거(pop)
+				if (stack.peek() == c) {
+					stack.pop();
+				} else {
+                // 같지 않을 경우, 값을 집어넣는다(push)
+					stack.push(c);
+				}
+			}
+		}
+        
+        // stack이 모두 비어있을 경우에 모두 제거된 것이므로 삼항연산자로 배열이 비어있는지 체크
+        // 비어있을 경우 1을 리턴, 아닐 경우 0을 리턴.
+        return stack.isEmpty() ? 1 : 0; 
+    }
+}
+
+```
+
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
