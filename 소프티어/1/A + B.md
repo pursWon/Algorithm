@@ -28,7 +28,7 @@ public class Main {
         sc.close();
         
         for(int j = 0; j < numbers.size(); j++) {
-        	int order = j + 1;
+            int order = j + 1;
           // get 함수에서 index로 해당되는 값들을 call 할 수 있음
           System.out.println("Case #"+order+": "+numbers.get(j)+"");
         }
